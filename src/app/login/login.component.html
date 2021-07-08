@@ -1,0 +1,24 @@
+<body>
+<form class="form-sugnin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="autorization">
+      <h2 class="l_login">Вход</h2>
+
+      <div *ngIf="invalidLogin" class="l_warning">Неверный пароль или(и) логин</div>
+
+      <div class="b_auth">
+        <label for="email" class="l_login_inner">Email</label><br>
+        <input type="email" id="email" name="email" ngModel class="l_login_inner" placeholder="Example@example.com" required>
+      </div>
+      <div class="b_auth">
+        <label for="password" class="l_login_inner">Пароль</label><br>
+        <input type="password" id="password" name="password" ngModel class="l_login_inner" required>
+      </div>
+      <div class="b_auth">
+        <a class="l_reg_inner" routerLink="/register" routerLinkActive="active">Регистрация</a>
+      </div>
+      <div class="b_auth">
+        <button class="b_login" type="submit">Войти</button>
+      </div>
+    </div>
+  </form>
+</body>

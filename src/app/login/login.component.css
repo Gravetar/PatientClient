@@ -1,0 +1,51 @@
+body {
+    font: 12px 'Comic Sans MS', 'Trebuchet MS', Arial, Helvetica;
+    margin: 0;
+}
+
+.autorization {
+    width: 20%;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    border-style: solid;
+    border-width: 2pt;
+    border-radius: 7pt;
+}
+
+.l_login {
+    font-weight: bold;
+    font-size: 32pt;
+    margin-left: 35%;
+}
+
+.b_auth {
+    padding: 5%;
+}
+
+.l_login_inner {
+    font-size: 13pt;
+    width: 100%;
+}
+
+.l_reg_inner {
+    font-size: 13pt;
+    text-align: center;
+    width: auto;
+}
+
+.b_login {
+    width: 100%;
+    height: 32px;
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.l_warning{
+    position: relative;
+    left: 5%;
+    width: 90%;
+    font-size: 13pt;
+    color: red;
+}

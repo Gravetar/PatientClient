@@ -1,0 +1,59 @@
+body {
+    font: 12px 'Comic Sans MS', 'Trebuchet MS', Arial, Helvetica;
+    margin: 0;
+}
+
+.reg_l {
+    font-size: 12pt;
+    margin-top: 2%;
+    color: #494949;
+    position: relative;
+    left: 5%;
+}
+
+.reg_in {
+    font-size: 14pt;
+    margin: 1%;
+    position: relative;
+    left: 5%;
+}
+
+.reg_btn {
+    font-size: 14pt;
+    margin-top: 5%;
+    position: absolute;
+    left: 35%;
+}
+
+.reg_al_reg {
+    font-size: 12pt;
+    margin-top: 15%;
+    position: absolute;
+    left: 30%;
+}
+
+.registaration {
+    position: absolute;
+    left: 35%;
+    width: 430px;
+    height: 750px;
+    margin: 2%;
+    border-style: solid;
+    border-width: 2pt;
+    border-radius: 2pt;
+}
+
+.reg_head {
+    font-weight: bold;
+    font-size: 18pt;
+    position: relative;
+    left: 20%;
+}
+
+.l_warning{
+    position: relative;
+    left: 5%;
+    width: 90%;
+    font-size: 13pt;
+    color: red;
+}

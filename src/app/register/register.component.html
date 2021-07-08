@@ -1,0 +1,52 @@
+<form class="form-sugnin" #loginForm="ngForm" (ngSubmit)="Register(loginForm)">
+    <div class="registaration">
+      <h2 class="reg_head">Регистрация пациента</h2>
+      <div *ngIf="invalidRegister" class="l_warning">Введены неверные данные</div>
+      <div>
+      <label for="email" class="reg_l">Email</label><br>
+      <input type="email" id="email" name="email" ngModel class="reg_in" placeholder="Example@example.com" required>
+      </div>
+    <div>
+      <label for="surname" class="reg_l">Фамилия</label><br>
+      <input type="surname" id="surname" name="surname" ngModel class="reg_in" placeholder="Иванов" required>
+    </div>
+    <div>
+      <label for="name" class="reg_l">Имя</label><br>
+      <input type="name" id="name" name="name" ngModel class="reg_in" placeholder="Иван" required>
+    </div>
+    <div>
+      <label for="patronymic" class="reg_l">Patronymic</label><br>
+      <input type="patronymic" id="patronymic" name="patronymic" ngModel class="reg_in" placeholder="Иванович" required>
+    </div>
+    <div>
+      <label for="dateofbirth" class="reg_l">Дата рождения</label><br>
+      <input type="date" id="dateofbirth" name="dateofbirth" ngModel class="reg_in" required>
+    </div>
+    <div>
+      <label for="numberpolicy" class="reg_l">Номер полиса</label><br>
+      <input type="numberpolicy" id="numberpolicy" name="numberpolicy" ngModel class="reg_in" placeholder="1234567890123456" required>
+    </div>
+    <div>
+      <label for="numberpassport" class="reg_l">Номер и серия паспорта</label><br>
+      <input type="numberpassport" id="numberpassport" name="numberpassport" ngModel class="reg_in" placeholder="1234567890" required>
+    </div>
+    <div>
+      <label for="phone" class="reg_l">Телефон</label><br>
+      <input type="phone" id="phone" name="phone" ngModel class="reg_in" placeholder="89111111111" required>
+    </div>
+    <div>
+      <label for="password" class="reg_l">Пароль</label><br>
+      <input type="password" id="password" name="password" ngModel class="reg_in" required>
+    </div>
+    <div>
+      <label for="confirmPassword" class="reg_l">Повторите пароль</label><br>
+      <input type="confirmPassword" id="confirmPassword" name="confirmPassword" ngModel class="reg_in" placeholder="" required>
+    </div>
+    <div>
+      <button class="reg_btn" type="submit">Регистрация</button>
+    </div>
+    <div>
+      <a class="reg_al_reg" routerLink="/login" routerLinkActive="active">Уже зарегистрированы?</a>
+  </div>
+    </div>
+  </form>
