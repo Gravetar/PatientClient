@@ -16,6 +16,7 @@ export class LoginComponent {
   constructor(private route: Router, private http: HttpClient) {}
 
   login(form: NgForm) {
+    this.invalidLogin = true;
     const credentials = {
       'email': form.value.email,
       'password': form.value.password
@@ -23,8 +24,10 @@ export class LoginComponent {
     this.http.post("http://localhost:35702/api/home/auth", credentials)
     .subscribe(response => {
       const token = (<any>response).token;
+      console.log(token);
+      localStorage.setItem("jwt", token);
       this.invalidLogin = false;
-      this.route.navigate(["home"]);
+      this.route.navigate(["profile"]);
     }, err => {
       this.invalidLogin = true;
     })

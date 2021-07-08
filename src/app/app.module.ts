@@ -8,19 +8,39 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { NavComponent } from './nav/nav.component';
+import { ProfileComponent } from './profile/profile.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { TestComponent } from './test/test.component';
+
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavComponent,
+    ProfileComponent,
+    EditprofileComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:35702"],
+        disallowedRoutes: []
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

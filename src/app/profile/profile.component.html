@@ -1,0 +1,42 @@
+<app-nav></app-nav>
+<body>
+    <div id="grid">
+        <div class="p_block">
+            <label class="p_label">Фамилия</label><br>
+            <label class="p_text">{{CurrentPatient.surname}}</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Номер полиса</label><br>
+            <label class="p_text">{{CurrentPatient.numberpolicy}}</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Имя</label><br>
+            <label class="p_text">{{CurrentPatient.name}}</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Номер и серия паспорта</label><br>
+            <label class="p_text">{{CurrentPatient.numberpassport}}</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Отчество</label><br>
+            <label class="p_text">{{CurrentPatient.patronymic}}</label>
+        </div>
+        <div><br></div>
+        <div><br></div>
+        <div class="p_block">
+            <label class="p_label">Email-адрес</label><br>
+            <label class="p_text">{{CurrentPatient.email}}</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Дата рождения</label><br>
+            <label class="p_text">{{CurrentPatient.dateofbirth}}</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Телефон</label><br>
+            <label class="p_text">{{CurrentPatient.phone}}</label>
+        </div>
+    </div>
+    <a class="p_edit" routerLink="/editprofile" routerLinkActive="active">Редактировать информацию</a>
+    <div class="p_photo"></div>
+</body>
+

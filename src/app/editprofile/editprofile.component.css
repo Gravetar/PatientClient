@@ -1,0 +1,55 @@
+body {
+    font: 12px 'Comic Sans MS', 'Trebuchet MS', Arial, Helvetica;
+    margin: 0;
+}
+
+#grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px 100px;
+    position: absolute;
+    width: 40%;
+    left: 50%;
+    margin-top: 15%;
+}
+
+.p_label {
+    font-size: 14pt;
+    color: #838383;
+}
+
+.p_text {
+    font-size: 18pt;
+    width: 100%;
+}
+
+.p_block {
+    width: 100%;
+    height: 85%;
+    border-bottom: solid 2px #000000;
+}
+
+.p_photo {
+    width: 430px;
+    height: 430px;
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    background-color: #838383;
+}
+
+.p_edit {
+    font-size: 13pt;
+    width: 430px;
+    position: absolute;
+    top: 25%;
+    left: 20%;
+}
+
+.e_save_btn {
+    font-size: 24pt;
+    position: absolute;
+    left: 60%;
+    top: 90%;
+}

@@ -1,0 +1,44 @@
+<app-nav></app-nav>
+<body>
+    <form class="form-sugnin" #EditForm="ngForm" (ngSubmit)="Edit(EditForm)">
+    <div id="grid">
+        <div class="p_block">
+            <label class="p_label">Фамилия</label><br>
+            <input class="p_text" type="surname" id="surname" name="surname" ngModel={{EditedPatient.surname}} placeholder="Иванов" value={{EditedPatient.surname}} required>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Номер полиса</label><br>
+            <input class="p_text" type="numberpolicy" id="numberpolicy" name="numberpolicy" ngModel={{EditedPatient.numberpolicy}} placeholder="1234567890123456" value={{EditedPatient.numberpolicy}} required>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Имя</label><br>
+            <input class="p_text" type="name" id="name" name="name" ngModel={{EditedPatient.name}} placeholder="Иван" value={{EditedPatient.name}} required>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Номер и серия паспорта</label><br>
+            <input class="p_text" type="numberpassport" id="numberpassport" name="numberpassport" ngModel={{EditedPatient.numberpassport}} placeholder="1234567890" value={{EditedPatient.numberpassport}} required>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Отчество</label><br>
+            <input class="p_text" type="patronymic" id="patronymic" name="patronymic" ngModel={{EditedPatient.patronymic}} placeholder="Иванович" value={{EditedPatient.patronymic}} required>
+        </div>
+        <div><br></div>
+        <div><br></div>
+        <div class="p_block">
+            <label class="p_label">Email-адрес</label><br>
+            <input class="p_text" type="email" id="email" name="email" ngModel={{EditedPatient.email}} placeholder="Example@example.com" value={{EditedPatient.email}} required>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Дата рождения</label><br>
+            <input class="p_text" type="date" id="dateofbirth" name="dateofbirth" ngModel={{EditedPatient.dateofbirth}} required>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Телефон</label><br>
+            <input class="p_text" type="phone" id="phone" name="phone" ngModel={{EditedPatient.phone}} placeholder="89111111111" value={{EditedPatient.phone}} required>
+        </div>
+    </div>
+    <input class="e_save_btn" type ="submit" value="Сохранить изменения" />
+    <div class="p_photo"></div>
+    </form>
+</body>
+

@@ -1,5 +1,6 @@
 export class Patient{
     constructor(
+        public id?:string, 
         public name?:string, 
         public surname?:string,
         public patronymic?: string,
@@ -8,7 +9,6 @@ export class Patient{
         public numberpassport?: string,
         public phone?: string,
         public email?: string,
-        public password?: string,
-        public confirmPassword?: string
+        public password?: string
         ){}
 }

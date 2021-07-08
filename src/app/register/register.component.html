@@ -1,4 +1,4 @@
-<form class="form-sugnin" #loginForm="ngForm" (ngSubmit)="Register(loginForm)">
+<form class="form-sugnin" #registerForm="ngForm" (ngSubmit)="Register(registerForm)">
     <div class="registaration">
       <h2 class="reg_head">Регистрация пациента</h2>
       <div *ngIf="invalidRegister" class="l_warning">Введены неверные данные</div>
@@ -40,7 +40,7 @@
     </div>
     <div>
       <label for="confirmPassword" class="reg_l">Повторите пароль</label><br>
-      <input type="confirmPassword" id="confirmPassword" name="confirmPassword" ngModel class="reg_in" placeholder="" required>
+      <input type="password" id="confirmPassword" name="confirmPassword" ngModel class="reg_in" placeholder="" required>
     </div>
     <div>
       <button class="reg_btn" type="submit">Регистрация</button>
