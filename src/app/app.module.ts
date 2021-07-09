@@ -14,6 +14,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { TestComponent } from './test/test.component';
 import { AapointmentspageComponent } from './aapointmentspage/aapointmentspage.component';
+import { OutpatientcardComponent } from './outpatientcard/outpatientcard.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -29,7 +30,8 @@ export function tokenGetter() {
     ProfileComponent,
     EditprofileComponent,
     TestComponent,
-    AapointmentspageComponent
+    AapointmentspageComponent,
+    OutpatientcardComponent
   ],
   imports: [
     BrowserModule,

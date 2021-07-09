@@ -1,0 +1,29 @@
+<app-nav></app-nav>
+<body>
+    <p class="oc_si_p">Социальная информация</p>
+    <div class = "oc_block">
+        <div class="oc_div">ID пациента: {{socialview.patientid}}</div>
+        <div class="oc_div">ФИО пациента: {{socialview.pationtfio}}</div>
+        <div class="oc_div">Возраст пациента: {{socialview.age}}</div>
+        <div class="oc_div">Полис пациента: {{socialview.numberpolicy}}</div>
+        <div class="oc_div">Серия и номер паспорта пациента: {{socialview.numberpassport}}</div>
+    </div>
+    <p class="oc_si_p2">Анамнез и сигнальная информация</p>
+    <div class = "oc_div_an_head">
+        <table *ngIf = "isExist" border = "1" cellspacing = "0" class="table_a">
+            <tr class="table_head_tr">
+                <td class="table_td">Формулировка</td>
+                <td class="table_td">Дата регистрации</td>
+                <td class="table_td">Врач</td>
+                <td class="table_td">Тип</td>
+            </tr>
+            <tr class="table_tr" *ngFor="let item of cards">
+                <td class="table_td">{{item.diagnose}}</td>
+                <td class="table_td">{{item.date}}</td>
+                <td class="table_td">{{item.surnamedoctor}} {{item.namedoctor}} {{item.patronymicdoctor}}</td>
+                <td class="table_td">{{item.type}}</td>
+            </tr>
+        </table>
+        <p class="warn_p" *ngIf = "!isExist">Не найдено не одной записи в амбулаторной карте</p>
+    </div>
+</body>

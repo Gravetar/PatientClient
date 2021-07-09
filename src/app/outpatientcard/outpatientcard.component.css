@@ -1,0 +1,96 @@
+body {
+    font: 12px 'Comic Sans MS', 'Trebuchet MS', Arial, Helvetica;
+    margin: 0;
+}
+
+.oc_block
+{
+    position: absolute;
+    height: 240px;
+    width: 1450px;
+    left: 380px;
+    top: 90px;
+    padding: 20px;
+    border: solid 2px;
+    border-radius: 10px;
+}
+
+.oc_div
+{
+    padding: 10px;
+    font-size: 14pt;
+}
+
+.oc_si_p
+{
+    position: absolute;
+    left: 380px;
+    top: 20px;
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.oc_si_p2
+{
+    position: absolute;
+    left: 380px;
+    top: 360px;
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.oc_block_an
+{
+    position: absolute;
+    height: 440px;
+    width: 1450px;
+    left: 380px;
+    top: 430px;
+    padding: 20px;
+    border: solid 2px;
+    border-radius: 10px;
+}
+
+.oc_div_an_head{
+    font-size: 14pt;
+    position: absolute;
+    top: 440px;
+    left: 380px;
+    height: 435px;
+    width: 1450px;
+    padding: 20px;
+    border: solid 2px;
+    border-radius: 10px;
+}
+
+.table_a {
+    position: absolute;
+    width: 1450px;
+}
+
+.table_head_tr{
+    background-color: rgb(192, 190, 190);
+    font-size: 13pt;
+}
+
+.table_tr{
+    height: 50px;
+    padding-left: 4px;
+}
+
+.table_td{
+    font-size: 13pt;
+    padding-left: 10px;
+}
+
+.warn_p{
+    font-size: 13pt;
+    position: absolute;
+}
+
+.head_p{
+    font-size: 24pt;
+    position: absolute;
+    left: 20%;
+    margin-top: 2%;
+}

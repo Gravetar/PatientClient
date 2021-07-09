@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { TestComponent } from './test/test.component';
 import { AapointmentspageComponent } from './aapointmentspage/aapointmentspage.component';
+import { OutpatientcardComponent } from './outpatientcard/outpatientcard.component';
 
 const routes: Routes = [{ path: '', component: LoginComponent },
 { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [{ path: '', component: LoginComponent },
 { path: 'profile', component: ProfileComponent },
 { path: 'editprofile', component: EditprofileComponent },
 { path: 'appointments', component: AapointmentspageComponent },
+{ path: 'outpatientcard', component: OutpatientcardComponent },
 { path: 'test', component: TestComponent }
 ];
 

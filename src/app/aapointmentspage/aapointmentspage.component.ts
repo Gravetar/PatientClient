@@ -16,7 +16,7 @@ export class AapointmentspageComponent implements OnInit {
   constructor(private route: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
-  //Получение текущего пользователя
+  //Получение зписей к врачу текущего пользователя
   this.http.get<Appointment[]>("http://localhost:35702/api/home/GetAppointments", ).subscribe
   ((data: Appointment[]) => {
     this.appointments = data;
@@ -28,7 +28,7 @@ export class AapointmentspageComponent implements OnInit {
   })
   }
   
-  RemoveAppointment(id: string) {
+  RemoveAppointment(id: undefined | string) {
     return this.http.delete("http://localhost:35702/api/Home/RemoveAppointments/" + id).subscribe
     (response => {
       console.log(response);

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Patient } from '../Models/Patient';
 import {BrowserModule} from '@angular/platform-browser';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-editprofile',
@@ -32,6 +33,7 @@ export class EditprofileComponent implements OnInit {
       (response => {
         console.log(response);
         this.EditedPatient = response;
+        this.DatePatients = this.parseDate(this.EditedPatient.dateofbirth);
       }, err => {
         console.log(err);
       })

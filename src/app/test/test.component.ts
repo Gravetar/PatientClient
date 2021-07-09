@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Appointment } from '../Models/Appointment';
 import { Patient } from '../Models/Patient';
+import { SocialInfoView } from '../Models/SocialInfoView';
 
 @Component({
   selector: 'app-test',
@@ -12,27 +13,18 @@ import { Patient } from '../Models/Patient';
 })
 export class TestComponent implements OnInit {
 
-  appointments: Appointment[] = [];
+  socialview!: SocialInfoView;
 
   constructor(private route: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
-  //Получение текущего пользователя
-  this.http.get<Appointment[]>("http://localhost:35702/api/home/GetAppointments", ).subscribe
-  ((data: Appointment[]) => {
-    this.appointments = data;
-    console.log(this.appointments);
+  //Получение текущего возраста
+  this.http.get("http://localhost:35702/api/home/GetSocialInfo").subscribe
+  (data => {
+    console.log(data);
+    this.socialview = data;
   }, err => {
     console.log(err);
   })
   }
-  
-  RemoveAppointment(id: string) {
-    return this.http.delete("http://localhost:35702/api/Home/RemoveAppointments/" + id).subscribe
-    (response => {
-      console.log(response);
-    }, err => {
-      console.log(err);
-    })
-    }
 }
