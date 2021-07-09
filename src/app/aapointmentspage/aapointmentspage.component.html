@@ -1,0 +1,21 @@
+<app-nav></app-nav>
+<body>
+    <p class="head_p">Ваши записи на прием к врачу</p>
+    <table *ngIf = "isExist" border = "1" cellspacing = "0" class="table_a">
+        <tr class="table_head_tr">
+            <td class="table_td">Дата записи</td>
+            <td class="table_td">Врач</td>
+            <td class="table_td">Время записи</td>
+            <td class="table_td">Кабинет</td>
+            <td class="table_td">Отмена записи</td>
+        </tr>
+        <tr class="table_tr" *ngFor="let item of appointments">
+            <td class="table_td">{{item.date}}</td>
+            <td class="table_td">{{item.fiodoctor}}</td>
+            <td class="table_td">{{item.time}}</td>
+            <td class="table_td">{{item.office}}</td>
+            <td class="table_td"><a routerLink="/appointments" routerLinkActive="active" onclick='window.location.reload(true)' (click)="RemoveAppointment(item.id)">Отменить</a></td>
+        </tr>
+    </table>
+<p class="warn_p" *ngIf = "!isExist">Не найдено не одной записи к врачу</p>
+</body>

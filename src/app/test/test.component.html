@@ -1,3 +1,11 @@
 <p>test works!</p>
 
-<li *ngFor="let item of someArray">{{item.name}}</li>
+<table>
+<tr *ngFor="let item of appointments">
+    <td>{{item.date}}</td>
+    <td>{{item.time}}</td>
+    <td>{{item.fiodoctor}}</td>
+    <td>{{item.office}}</td>
+    <td><button class="btn btn-sm btn-danger" onclick='window.location.reload(true)' (click)="RemoveAppointment(item.id)">Удалить</button></td>
+</tr>
+</table>

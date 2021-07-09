@@ -1,18 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Appointment } from '../Models/Appointment';
-import { Patient } from '../Models/Patient';
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  selector: 'app-aapointmentspage',
+  templateUrl: './aapointmentspage.component.html',
+  styleUrls: ['./aapointmentspage.component.css']
 })
-export class TestComponent implements OnInit {
+export class AapointmentspageComponent implements OnInit {
 
   appointments: Appointment[] = [];
+  isExist: boolean = false;
 
   constructor(private route: Router, private http: HttpClient) { }
 
@@ -22,6 +21,8 @@ export class TestComponent implements OnInit {
   ((data: Appointment[]) => {
     this.appointments = data;
     console.log(this.appointments);
+    console.log(this.appointments.length);
+    if (this.appointments.length!=0) this.isExist = true;
   }, err => {
     console.log(err);
   })
@@ -35,4 +36,5 @@ export class TestComponent implements OnInit {
       console.log(err);
     })
     }
+
 }

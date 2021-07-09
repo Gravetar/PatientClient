@@ -1,0 +1,41 @@
+body {
+    font: 12px 'Comic Sans MS', 'Trebuchet MS', Arial, Helvetica;
+    margin: 0;
+}
+
+.table_a {
+    position: absolute;
+    width: 40%;
+    left: 20%;
+    margin-top: 5%;
+    width: 1500px;
+}
+
+.table_head_tr{
+    background-color: rgb(192, 190, 190);
+    font-size: 13pt;
+}
+
+.table_tr{
+    height: 50px;
+    padding-left: 4px;
+}
+
+.table_td{
+    font-size: 13pt;
+    padding-left: 10px;
+}
+
+.warn_p{
+    font-size: 13pt;
+    position: absolute;
+    left: 20%;
+    margin-top: 5%;
+}
+
+.head_p{
+    font-size: 24pt;
+    position: absolute;
+    left: 20%;
+    margin-top: 2%;
+}
