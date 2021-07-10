@@ -1,10 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Route } from '@angular/compiler/src/core';
-import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpClientModule, HttpEventType, HttpRequest } from '@angular/common/http';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Appointment } from '../Models/Appointment';
 import { Patient } from '../Models/Patient';
-import { SocialInfoView } from '../Models/SocialInfoView';
+import { DownloadService } from '../services/Downloadservice';
+import { UploadService } from '../services/UploadSevice';
 
 @Component({
   selector: 'app-test',
@@ -13,18 +12,31 @@ import { SocialInfoView } from '../Models/SocialInfoView';
 })
 export class TestComponent implements OnInit {
 
-  socialview!: SocialInfoView;
+  CurrenUser: Patient = new Patient();
+  CurrentUserId?: string;
+  urlimg?: string;
 
-  constructor(private route: Router, private http: HttpClient) { }
+   ngOnInit(): void {
 
-  ngOnInit(): void {
-  //Получение текущего возраста
-  this.http.get("http://localhost:35702/api/home/GetSocialInfo").subscribe
-  (data => {
-    console.log(data);
-    this.socialview = data;
-  }, err => {
-    console.log(err);
-  })
+  }
+  constructor(private http: HttpClient) { }
+
+  upload(files: any) {
+    if (files.length === 0)
+      return;
+
+    const formData = new FormData();
+
+    for (let file of files)
+      formData.append(file.name, file);
+      console.log(formData);
+
+      this.http.post("http://localhost:35702/api/home/UploadImage", formData)
+      .subscribe(response => {
+        const token = (<any>response).token;
+        console.log(formData);
+      }, err => {
+        console.log(err)
+      })
   }
 }

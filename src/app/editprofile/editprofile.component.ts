@@ -16,6 +16,9 @@ export class EditprofileComponent implements OnInit {
 
   EditedPatient: Patient = new Patient();
   DatePatients: Date = new Date();
+  CurrentPatient: Patient = new Patient();
+  CurrentUserId?: string;
+  urlimg?: string;
 
   constructor(
     private router: Router,
@@ -37,7 +40,18 @@ export class EditprofileComponent implements OnInit {
       }, err => {
         console.log(err);
       })
-      
+
+      //Получение текущего изображения пользователя
+      this.http.get("http://localhost:35702/api/home/GetUser").subscribe
+      (response => {
+        console.log(response);
+        this.CurrentPatient = response;
+        this.CurrentUserId = this.CurrentPatient.id;
+        this.urlimg="http://localhost:35702/AccountImages/"+this.CurrentUserId+".png"
+        console.log(this.urlimg);
+      }, err => {
+        console.log(err);
+      })
   }
   invalidEdit!: boolean;
 
@@ -63,7 +77,7 @@ export class EditprofileComponent implements OnInit {
       console.log(credentials)
       console.log(err);
     })
-    
+
     const Auth = {
       'email': this.EditedPatient.email,
       'password': this.EditedPatient.password
@@ -89,5 +103,24 @@ export class EditprofileComponent implements OnInit {
     }
 }
 
-  
+upload(files: any) {
+  if (files.length === 0)
+    return;
+
+  const formData = new FormData();
+
+  for (let file of files)
+    formData.append(file.name, file);
+    console.log(formData);
+
+    this.http.post("http://localhost:35702/api/home/UploadImage", formData)
+    .subscribe(response => {
+      const token = (<any>response).token;
+      console.log(formData);
+    }, err => {
+      console.log(err)
+    })
+}
+
+
 }
