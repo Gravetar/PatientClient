@@ -36,7 +36,9 @@ body {
     position: absolute;
     left: 20%;
     top: 30%;
-    background-color: #838383;
+    background-image: url("default.png");
+    background-size:contain;
+    background-position-x: center;
 }
 
 .p_edit {
@@ -52,4 +54,18 @@ body {
     position: absolute;
     left: 60%;
     top: 90%;
+}
+
+.p_uploadimg{
+    position: absolute;
+    top: 800px;
+    left: 390px;
+    font-size: 13pt;
+}
+
+.p_ph_inf{
+  position: absolute;
+  top: 750px;
+  left: 390px;
+  font-size: 13pt;
 }

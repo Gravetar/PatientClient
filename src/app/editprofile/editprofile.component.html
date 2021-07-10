@@ -38,8 +38,9 @@
         </div>
     </div>
     <input class="e_save_btn" type ="submit" value="Сохранить изменения" />
+    <label class = "p_ph_inf">Выберите изображение аккаунта</label>
     <img class="p_photo" src = {{urlimg}}>
-    <input #file type="file" (change)="upload(file.files)"/>
+    <input class = "p_uploadimg" accept=".png" #file type="file" (change)="upload(file.files)" />
     </form>
 </body>
 

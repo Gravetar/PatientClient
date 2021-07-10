@@ -10,7 +10,7 @@ body {
     grid-gap: 20px 100px;
     position: absolute;
     width: 40%;
-    left: 50%;
+    left: 960px;
     margin-top: 15%;
 }
 
@@ -36,13 +36,16 @@ body {
     position: absolute;
     left: 20%;
     top: 30%;
-    background-color: #838383;
+    background-image: url("default.png");
+    background-size:contain;
+    background-position-x: center;
+
 }
 
 .p_edit {
     font-size: 13pt;
     width: 430px;
     position: absolute;
-    top: 25%;
-    left: 20%;
+    top: 250px;
+    left: 960px;
 }

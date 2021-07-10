@@ -19,6 +19,7 @@ export class EditprofileComponent implements OnInit {
   CurrentPatient: Patient = new Patient();
   CurrentUserId?: string;
   urlimg?: string;
+  uploadimg?: FormData;
 
   constructor(
     private router: Router,
@@ -47,7 +48,7 @@ export class EditprofileComponent implements OnInit {
         console.log(response);
         this.CurrentPatient = response;
         this.CurrentUserId = this.CurrentPatient.id;
-        this.urlimg="http://localhost:35702/AccountImages/"+this.CurrentUserId+".png"
+        this.urlimg="http://localhost:35702/AccountImages/"+this.CurrentUserId+".png?12345"
         console.log(this.urlimg);
       }, err => {
         console.log(err);
@@ -78,6 +79,16 @@ export class EditprofileComponent implements OnInit {
       console.log(err);
     })
 
+    if (this.uploadimg != null)
+    {
+        this.http.post("http://localhost:35702/api/home/UploadImage", this.uploadimg)
+        .subscribe(response => {
+          const token = (<any>response).token;
+          console.log(this.uploadimg);
+        }, err => {
+          console.log(err)
+        })
+    }
     const Auth = {
       'email': this.EditedPatient.email,
       'password': this.EditedPatient.password
@@ -113,13 +124,7 @@ upload(files: any) {
     formData.append(file.name, file);
     console.log(formData);
 
-    this.http.post("http://localhost:35702/api/home/UploadImage", formData)
-    .subscribe(response => {
-      const token = (<any>response).token;
-      console.log(formData);
-    }, err => {
-      console.log(err)
-    })
+    this.uploadimg = formData;
 }
 
 
