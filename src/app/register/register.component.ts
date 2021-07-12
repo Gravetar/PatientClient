@@ -28,7 +28,7 @@ export class RegisterComponent {
       'numberpassport': form.value.numberpassport,
       'phone': form.value.phone,
       'dateofbirth': form.value.dateofbirth,
-      'confirmPassword': form.value.confirmPassword, 
+      'confirmPassword': form.value.confirmPassword,
     }
     this.http.post("http://localhost:35702/api/Home/Register", credentials)
     .subscribe(response => {
@@ -39,16 +39,17 @@ export class RegisterComponent {
       console.log(credentials)
       console.log(err);
     })
-        //Вход в аккаунт
-        this.http.post("http://localhost:35702/api/home/auth", credentials)
-        .subscribe(response => {
-          const token = (<any>response).token;
-          console.log(token);
-          localStorage.setItem("jwt", token);
-          this.route.navigate(["profile"]);
-        }, err => {
-          console.log(err)
-        })
-  }
+
+    //Вход в аккаунт
+    this.http.post("http://localhost:35702/api/home/auth", credentials)
+    .subscribe(response => {
+      const token = (<any>response).token;
+      console.log(token);
+      localStorage.setItem("jwt", token);
+      this.route.navigate(["profile"]);
+    }, err => {
+      console.log(err)
+    })
+}
 
 }
