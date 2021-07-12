@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
         console.log(response);
         this.CurrentPatient = response;
         this.CurrentUserId = this.CurrentPatient.id;
-        this.urlimg="http://localhost:35702/AccountImages/"+this.CurrentUserId+".png?12345"
+        this.urlimg="http://localhost:35702/AccountImages/"+this.CurrentUserId+".png"
         console.log(this.urlimg);
       }, err => {
         console.log(err);
