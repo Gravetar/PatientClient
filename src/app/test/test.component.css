@@ -1,8 +1,4 @@
-td {
-    position:relative;
-    width: 100px;
-}
-
-table {
-    table-layout: fixed;
+.selectitem
+{
+  width: 200px;
 }

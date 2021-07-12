@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { NgForm } from '@angular/forms'; 
+import { NgForm } from '@angular/forms';
 
 import { from } from 'rxjs';
- 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +16,7 @@ export class LoginComponent {
   constructor(private route: Router, private http: HttpClient) {}
 
   login(form: NgForm) {
-    this.invalidLogin = true;
+    this.invalidLogin = false;
     const credentials = {
       'email': form.value.email,
       'password': form.value.password
@@ -32,5 +32,5 @@ export class LoginComponent {
       this.invalidLogin = true;
     })
   }
- 
+
 }
