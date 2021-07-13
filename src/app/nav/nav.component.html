@@ -1,21 +1,30 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <nav>
     <div class="n_layout">
         <div class="n_nav_block">
             <div class="n_nav">Навигация</div>
         </div>
-        <div class="n_label_block">
-            <a class="n_label" routerLink="/profile" routerLinkActive="active">Личный кабинет</a>
+        <div class="n_label_block"  routerLink="/profile" routerLinkActive="active">
+          <mat-icon class = "myicon">account_circle</mat-icon>
+            <a class="n_label">Личный кабинет</a>
+        </div>
+        <div class="n_label_block" routerLink="/appointments" routerLinkActive="active">
+          <mat-icon class = "myicon">event_note</mat-icon>
+            <a class="n_label" >Мои записи к  врачу</a>
+        </div>
+        <div class="n_label_block" routerLink="/addappointment" routerLinkActive="active">
+          <mat-icon class = "myicon">edit</mat-icon>
+          <a class="n_label">Записаться к врачу</a>
+      </div>
+        <div class="n_label_block" routerLink="/outpatientcard" routerLinkActive="active">
+          <mat-icon class = "myicon">book</mat-icon>
+            <a class="n_label" >Амбулаторная карта</a>
         </div>
         <div class="n_label_block">
-            <a class="n_label" routerLink="/appointments" routerLinkActive="active">Мои записи к  врачу</a>
-        </div>
-        <div class="n_label_block">
-            <a class="n_label" routerLink="/outpatientcard" routerLinkActive="active">Амбулаторная карта</a>
-        </div>
-        <div class="n_label_block">
+          <mat-icon class = "myicon">exit_to_app</mat-icon>
             <br />
             <form method="post">
-                <a class="n_label" href="" (click)="logOut()">Выход из аккаунта</a>
+                <a class="n_label_exit" (click)="logOut()">Выход из аккаунта</a>
             </form>
         </div>
     </div>

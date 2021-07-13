@@ -1,0 +1,50 @@
+body {
+  font: 12px 'Comic Sans MS', 'Trebuchet MS', Arial, Helvetica;
+  margin: 0;
+}
+
+.demo-inline-calendar-card {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 30px;
+  border: solid 1px;
+}
+
+.aa_l_head{
+  font-size: 24pt;
+}
+
+.aa_l_placeholder{
+  font-size: 13pt;
+}
+
+.selectitem
+{
+  width: 300px;
+  font-size: 13pt;
+}
+
+.aa_block {
+  position: relative;
+  top: 20px;
+}
+
+.aa_block_time {
+  position: absolute;
+  top: 780px;
+}
+
+.aa_layout {
+  position: absolute;
+  top: 50px;
+  width: 1200px;
+  left: 350px;
+}
+
+.aa_btn{
+  font-size: 24pt;
+  position: absolute;
+  top: 600px;
+  left: 1000px;
+}

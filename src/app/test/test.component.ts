@@ -1,10 +1,14 @@
 import { HttpClient, HttpClientModule, HttpEventType, HttpRequest } from '@angular/common/http';
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Patient } from '../Models/Patient';
 import { DownloadService } from '../services/Downloadservice';
 import { UploadService } from '../services/UploadSevice';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { DatePipe } from '@angular/common';
+import { DateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-test',
@@ -12,6 +16,8 @@ import { UploadService } from '../services/UploadSevice';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
+
+  selected!: Date | null;
 
   positions: any;
   doctors: any;
@@ -26,12 +32,14 @@ export class TestComponent implements OnInit {
   having: boolean = false;
 
 
-
+  toppings = new FormControl();
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
    ngOnInit(): void {
     this.getAllPositions();
+    this._adapter.setLocale("ru")
   }
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public datepipe: DatePipe, private _adapter: DateAdapter<any>) { }
 
   getAllPositions (){
       //Получение текущего пользователя
@@ -70,6 +78,8 @@ onChangePosition(newValue: any) {
     }
 
     onChangeDate(newValue: any) {
+      newValue = this.datepipe.transform(newValue, 'yyyy-MM-dd')
+      console.log(newValue);
       this.date = newValue;
 
     //Получение
@@ -96,7 +106,7 @@ onChangePosition(newValue: any) {
         const credentials = {
           'date': this.date,
           'time': this.timeforadd,
-          'doctorid': this.doctor,
+          'doctorid': this.doctor
         }
         console.log(credentials);
 

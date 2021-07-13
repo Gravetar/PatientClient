@@ -15,6 +15,19 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 import { TestComponent } from './test/test.component';
 import { AapointmentspageComponent } from './aapointmentspage/aapointmentspage.component';
 import { OutpatientcardComponent } from './outpatientcard/outpatientcard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
+import { enableProdMode } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { DemoMaterialModule } from './material-module';
+import { DatePipe } from '@angular/common';
+import { AddappointmentComponent } from './addappointment/addappointment.component';
+import {MatIconModule} from '@angular/material/icon'
+
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -31,7 +44,8 @@ export function tokenGetter() {
     EditprofileComponent,
     TestComponent,
     AapointmentspageComponent,
-    OutpatientcardComponent
+    OutpatientcardComponent,
+    AddappointmentComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +58,16 @@ export function tokenGetter() {
         allowedDomains: ["localhost:35702"],
         disallowedRoutes: []
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    DemoMaterialModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatIconModule
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [DatePipe],
+  bootstrap: [AppComponent, TestComponent],
+  entryComponents: [TestComponent],
 })
 export class AppModule { }

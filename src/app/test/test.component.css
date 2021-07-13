@@ -2,3 +2,13 @@
 {
   width: 200px;
 }
+
+.demo-inline-calendar-card {
+  width: 300px;
+}
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 30px;
+}

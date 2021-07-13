@@ -22,3 +22,15 @@
   <form class="form" #Form="ngForm" (ngSubmit)="AddAppointment(Form)">
     <input class="e_save_btn" type ="submit" value="Записаться"/>
   </form>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Toppings</mat-label>
+    <mat-select [formControl]="toppings" multiple>
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-card class="demo-inline-calendar-card">
+    <mat-calendar [selected]="date"  (selectedChange)="onChangeDate($event)"></mat-calendar>
+  </mat-card>
+  <p>Selected date: {{date}}</p>
