@@ -2,7 +2,7 @@
 <nav>
     <div class="n_layout">
         <div class="n_nav_block">
-            <div class="n_nav">Меню сайта</div>
+            <div class="n_nav">Навигация</div>
         </div>
         <div class="n_label_block"  routerLink="/profile" routerLinkActive="active">
           <mat-icon class = "myicon">account_circle</mat-icon>
@@ -20,11 +20,11 @@
           <mat-icon class = "myicon">book</mat-icon>
             <a class="n_label" >Амбулаторная карта</a>
         </div>
-        <div class="n_label_block" (click)="logOut()">
+        <div class="n_label_block">
           <mat-icon class = "myicon">exit_to_app</mat-icon>
             <br />
             <form method="post">
-                <a class="n_label_exit">Выход из аккаунта</a>
+                <a class="n_label_exit" (click)="logOut()">Выход из аккаунта</a>
             </form>
         </div>
     </div>

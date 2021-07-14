@@ -13,6 +13,9 @@ body {
 
 .aa_l_head{
   font-size: 24pt;
+  position: absolute;
+  left: 350px;
+  margin-top: 2%;
 }
 
 .aa_l_placeholder{
@@ -27,19 +30,18 @@ body {
 
 .aa_block {
   position: relative;
-  top: 20px;
 }
 
 .aa_block_time {
   position: absolute;
-  top: 780px;
+  top: 750px;
 }
 
 .aa_layout {
   position: absolute;
-  top: 50px;
+  margin-top: 5%;
+  left: 360px;
   width: 1200px;
-  left: 350px;
 }
 
 .aa_btn{

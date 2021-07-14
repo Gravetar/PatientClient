@@ -4,27 +4,31 @@ body {
 }
 
 .n_layout {
-    width: 215pt;
-    height: 650pt;
-    float: left;
-    margin-left: 2%;
-    border-style: solid;
-    border-width: 2pt;
-    border-radius: 2pt;
-    margin-top: 2%;
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  top: -2px;
+  left: -2px;
+  overflow-x: hidden;
+  padding-top: 20px;
+  border: solid 2px;
 }
 
 .n_nav {
     width: 100%;
     font-size: 13pt;
     font-weight: bold;
-    position: relative;
-    left: 3%;
+    left: 1%;
+    top: 3px;
+    position: fixed;
 }
 
 .n_nav_block {
     width: 100%;
-    height: 20pt;
+    height: 40px;
+    position: fixed;
+    width: 300px;
+    top: 0;
     background-color: rgb(199, 198, 198);
 }
 
@@ -53,6 +57,11 @@ body {
 .n_label_block {
     width: 100%;
     height: 7%;
+    cursor: pointer;
+}
+
+.n_label_block:hover {
+  background-color: rgb(207, 207, 207);
 }
 
 .active {

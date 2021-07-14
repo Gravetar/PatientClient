@@ -1,12 +1,13 @@
 body {
     font: 12px 'Comic Sans MS', 'Trebuchet MS', Arial, Helvetica;
     margin: 0;
+    display: flex;
 }
 
 .table_a {
-    position: absolute;
     width: 40%;
-    left: 20%;
+    position: absolute;
+    left: 360px;
     margin-top: 5%;
     width: 1500px;
 }
@@ -36,6 +37,6 @@ body {
 .head_p{
     font-size: 24pt;
     position: absolute;
-    left: 20%;
+    left: 350px;
     margin-top: 2%;
 }

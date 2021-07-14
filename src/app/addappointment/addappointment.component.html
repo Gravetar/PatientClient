@@ -1,10 +1,11 @@
 <app-nav></app-nav>
 <body>
+  <p class="aa_l_head">Запись на прием к врачу</p>
   <div class="aa_layout">
-  <label class="aa_l_head">Запись на прием к врачу</label>
   <div class="aa_block">
     <label class="aa_l_placeholder">Выберите отрасль необходимой помощи:</label><br>
     <select [(ngModel)]="position" class="selectitem" (ngModelChange)="onChangePosition($event)">
+      <option style="display:none;"></option>
       <option *ngFor="let item of positions" [value]="item.name">
         {{item.name}}
       </option>
@@ -14,10 +15,18 @@
   <div *ngIf = "isPosition" class="aa_block">
     <label class="aa_l_placeholder">Выберите врача:</label><br>
     <select name="doctor" [(ngModel)]="doctor" class="selectitem" (ngModelChange)="onChangeDoctor($event)">
+    <option style="display:none;"></option>
     <option *ngFor="let item of doctors" [value]="item.fullname" [ngValue] = "item.id">
       {{item.fullname}}
     </option>
   </select>
+  </div><br>
+
+  <div *ngIf = "isDoctor" class="aa_block">
+    <label class="aa_l_placeholder">Выберите дату:</label><br>
+    <mat-card class="demo-inline-calendar-card">
+      <mat-calendar [minDate]="minDate" [selected]="date"  (selectedChange)="onChangeDate($event)"></mat-calendar>
+    </mat-card>
   </div><br>
 
   <div *ngIf = "isDate" class="aa_block_time">
@@ -29,13 +38,6 @@
       </option>
     </select>
     <label *ngIf = "!isHavingTimes" class="aa_l_placeholder">На данную дату времени для записи не осталось!</label><br>
-  </div><br>
-
-  <div *ngIf = "isDoctor" class="aa_block">
-    <label class="aa_l_placeholder">Выберите дату:</label><br>
-    <mat-card class="demo-inline-calendar-card">
-      <mat-calendar [minDate]="minDate" [selected]="date"  (selectedChange)="onChangeDate($event)"></mat-calendar>
-    </mat-card>
   </div><br>
 
   <div *ngIf = "isTime" class="aa_block">
