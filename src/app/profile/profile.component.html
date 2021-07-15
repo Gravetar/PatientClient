@@ -28,8 +28,13 @@
             <label class="p_text">{{CurrentPatient.email}}</label>
         </div>
         <div class="p_block">
-            <label class="p_label">Дата рождения</label><br>
-            <label class="p_text">{{CurrentPatient.dateofbirth}}</label>
+          <label class="p_label">Дата рождения</label><br>
+            <mat-form-field appearance="legacy" class = "form_date">
+              <input matInput [matDatepicker]="picker" class="p_text_date" id="date" name="dateofbirth" ngModel={{CurrentPatient.dateofbirth}} readonly>
+              <mat-datepicker-toggle matSuffix [for]="picker" hidden></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
         </div>
         <div class="p_block">
             <label class="p_label">Телефон</label><br>

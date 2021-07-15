@@ -17,11 +17,24 @@ body {
 .p_label {
     font-size: 14pt;
     color: #838383;
+    position: relative;
+    top: 15px;
 }
 
 .p_text {
     font-size: 18pt;
     width: 100%;
+    position: relative;
+    top: 15px;
+}
+
+.form_date {
+  top: 5px
+}
+
+.p_text_date {
+  font-size: 18pt;
+  width: 100%;
 }
 
 .p_block {
@@ -45,7 +58,7 @@ body {
 .p_edit {
     font-size: 13pt;
     width: 430px;
-    position: absolute;
+    position: relative;
     top: 250px;
     left: 960px;
 }
