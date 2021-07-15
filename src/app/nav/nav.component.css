@@ -17,7 +17,6 @@ body {
 .n_nav {
     width: 100%;
     font-size: 13pt;
-    font-weight: bold;
     left: 1%;
     top: 3px;
     position: fixed;
@@ -35,11 +34,10 @@ body {
 .n_label {
     width: 100%;
     font-size: 13pt;
-    font-weight: bold;
     position: relative;
-    top: 25%;
+    top: 30%;
     left: 10%;
-    transform: translateY(-25%);
+    transform: translateY(-20%);
     text-align: center;
     cursor: pointer;
 }
@@ -47,7 +45,6 @@ body {
 .n_label_exit {
   width: 100%;
   font-size: 13pt;
-  font-weight: bold;
   position: relative;
   left: 18%;
   text-align: center;
@@ -71,6 +68,6 @@ body {
 
 .myicon {
   position: relative;
-  top: 20px;
+  top: 25px;
   left: 10px;
 }

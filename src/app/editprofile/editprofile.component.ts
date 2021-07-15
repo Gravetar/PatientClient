@@ -6,17 +6,42 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Patient } from '../Models/Patient';
 import {BrowserModule} from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
+import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+
+import * as _moment from 'moment';
+
+const moment = _moment;
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'DD.MM.YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
-  styleUrls: ['./editprofile.component.css']
+  styleUrls: ['./editprofile.component.css'],
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ],
 })
 export class EditprofileComponent implements OnInit {
 
   EditedPatient: Patient = new Patient();
-  DatePatients: Date = new Date();
   CurrentPatient: Patient = new Patient();
   CurrentUserId?: string;
   urlimg?: string;
@@ -25,11 +50,13 @@ export class EditprofileComponent implements OnInit {
   constructor(
     private router: Router,
     private jwtHelper: JwtHelperService,
-    private http: HttpClient
+    private http: HttpClient,
+    private _adapter: DateAdapter<any>
   ) { }
 
   ngOnInit(): void {
     const token: string|null = localStorage.getItem("jwt");
+    this._adapter.setLocale('ru');
     if (!(token && !this.jwtHelper.isTokenExpired(token))) { //Если не авторизован
       this.router.navigate(["login"])} //Отправить на авторизацию
 
@@ -38,7 +65,6 @@ export class EditprofileComponent implements OnInit {
       (response => {
         console.log(response);
         this.EditedPatient = response;
-        this.DatePatients = this.parseDate(this.EditedPatient.dateofbirth);
       }, err => {
         console.log(err);
       })
@@ -49,7 +75,7 @@ export class EditprofileComponent implements OnInit {
         console.log(response);
         this.CurrentPatient = response;
         this.CurrentUserId = this.CurrentPatient.id;
-        this.urlimg="http://localhost:35702/AccountImages/"+this.CurrentUserId+".png"
+        this.urlimg="http://localhost:35702/AccountImages/"+this.CurrentUserId+".png?"+Date.now()
         console.log(this.urlimg);
       }, err => {
         console.log(err);
@@ -69,13 +95,16 @@ export class EditprofileComponent implements OnInit {
       'phone': form.value.phone,
       'dateofbirth': form.value.dateofbirth
     }
+    try {
+      credentials.dateofbirth = credentials.dateofbirth.format("yyyy-MM-DD");
+    }
+    catch {}
+
     this.http.post("http://localhost:35702/api/Home/EditPatient", credentials)
     .subscribe(response => {
       const token = (<any>response).token;
       this.invalidEdit = false;
       console.log(credentials);
-      setTimeout(function(){
-      }, 1000)
     }, err => {
       this.invalidEdit = true;
       console.log(credentials)
@@ -92,6 +121,9 @@ export class EditprofileComponent implements OnInit {
           console.log(err)
         })
     }
+
+    setTimeout(function(){
+    }, 1000)
     const Auth = {
       'email': this.EditedPatient.email,
       'password': this.EditedPatient.password
