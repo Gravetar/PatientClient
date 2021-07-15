@@ -3,38 +3,56 @@
     <form class="form-sugnin" #EditForm="ngForm" (ngSubmit)="Edit(EditForm)">
     <div id="grid">
         <div class="p_block">
-            <label class="p_label">Фамилия</label><br>
-            <input class="p_text" type="surname" id="surname" name="surname" ngModel={{EditedPatient.surname}} placeholder="Иванов" value={{EditedPatient.surname}} required>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Фамилия</mat-label>
+            <input matInput class="p_text" type="surname" id="surname" name="surname" ngModel={{EditedPatient.surname}} placeholder="Иванов" value={{EditedPatient.surname}} required>
+          </mat-form-field>
         </div>
         <div class="p_block">
-            <label class="p_label">Номер полиса</label><br>
-            <input class="p_text" type="numberpolicy" id="numberpolicy" name="numberpolicy" ngModel={{EditedPatient.numberpolicy}} placeholder="1234567890123456" value={{EditedPatient.numberpolicy}} required>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Номер полиса</mat-label>
+            <input matInput  class="p_text" type="numberpolicy" id="numberpolicy" name="numberpolicy" ngModel={{EditedPatient.numberpolicy}} placeholder="1234567890123456" value={{EditedPatient.numberpolicy}} required>
+          </mat-form-field>
         </div>
         <div class="p_block">
-            <label class="p_label">Имя</label><br>
-            <input class="p_text" type="name" id="name" name="name" ngModel={{EditedPatient.name}} placeholder="Иван" value={{EditedPatient.name}} required>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Имя</mat-label>
+            <input matInput class="p_text" type="name" id="name" name="name" ngModel={{EditedPatient.name}} placeholder="Иван" value={{EditedPatient.name}} required>
+          </mat-form-field>
         </div>
         <div class="p_block">
-            <label class="p_label">Номер и серия паспорта</label><br>
-            <input class="p_text" type="numberpassport" id="numberpassport" name="numberpassport" ngModel={{EditedPatient.numberpassport}} placeholder="1234567890" value={{EditedPatient.numberpassport}} required>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Номер и серия паспорта</mat-label>
+            <input matInput class="p_text" type="numberpassport" id="numberpassport" name="numberpassport" ngModel={{EditedPatient.numberpassport}} placeholder="1234567890" value={{EditedPatient.numberpassport}} required>
+          </mat-form-field>
         </div>
         <div class="p_block">
-            <label class="p_label">Отчество</label><br>
-            <input class="p_text" type="patronymic" id="patronymic" name="patronymic" ngModel={{EditedPatient.patronymic}} placeholder="Иванович" value={{EditedPatient.patronymic}} required>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Отчество</mat-label>
+            <input matInput class="p_text" type="patronymic" id="patronymic" name="patronymic" ngModel={{EditedPatient.patronymic}} placeholder="Иванович" value={{EditedPatient.patronymic}} required>
+          </mat-form-field>
         </div>
         <div><br></div>
         <div><br></div>
         <div class="p_block">
-            <label class="p_label">Email-адрес</label><br>
-            <input class="p_text" type="email" id="email" name="email" ngModel={{EditedPatient.email}} placeholder="Example@example.com" value={{EditedPatient.email}} required>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email-адрес</mat-label>
+            <input matInput class="p_text" type="email" id="email" name="email" ngModel={{EditedPatient.email}} placeholder="Example@example.com" value={{EditedPatient.email}} required>
+          </mat-form-field>
         </div>
         <div class="p_block">
-            <label class="p_label">Дата рождения</label><br>
-            <input class="p_text" type="date" id="date" name="dateofbirth" ngModel={{EditedPatient.dateofbirth}} required>
+          <mat-form-field appearance="fill">
+            <mat-label>Дата рождения</mat-label>
+            <input matInput [matDatepicker]="picker" class="p_text" id="date" name="dateofbirth" ngModel={{EditedPatient.dateofbirth}} required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
         </div>
         <div class="p_block">
-            <label class="p_label">Телефон</label><br>
-            <input class="p_text" type="phone" id="phone" name="phone" ngModel={{EditedPatient.phone}} placeholder="89111111111" value={{EditedPatient.phone}} required>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Телефон</mat-label>
+            <input matInput class="p_text" type="phone" id="phone" name="phone" ngModel={{EditedPatient.phone}} placeholder="89111111111" value={{EditedPatient.phone}} required>
+          </mat-form-field>
         </div>
     </div>
     <input class="e_save_btn" type ="submit" value="Сохранить изменения" />

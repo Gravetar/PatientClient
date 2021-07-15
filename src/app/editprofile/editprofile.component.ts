@@ -6,6 +6,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Patient } from '../Models/Patient';
 import {BrowserModule} from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
 @Component({
   selector: 'app-editprofile',
@@ -73,6 +74,8 @@ export class EditprofileComponent implements OnInit {
       const token = (<any>response).token;
       this.invalidEdit = false;
       console.log(credentials);
+      setTimeout(function(){
+      }, 1000)
     }, err => {
       this.invalidEdit = true;
       console.log(credentials)

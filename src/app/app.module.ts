@@ -26,7 +26,7 @@ import { environment } from 'src/environments/environment';
 import { DemoMaterialModule } from './material-module';
 import { DatePipe } from '@angular/common';
 import { AddappointmentComponent } from './addappointment/addappointment.component';
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
 
 
 export function tokenGetter() {
