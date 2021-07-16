@@ -5,9 +5,9 @@ body {
 
 .demo-inline-calendar-card {
   position: absolute;
-  width: 500px;
-  height: 500px;
-  top: 30px;
+  width: 450px;
+  height: 450px;
+  top: 25px;
   border: solid 1px;
 }
 
@@ -30,11 +30,15 @@ body {
 
 .aa_block {
   position: relative;
+  width: 485px;
+  font-size: 11pt;
 }
 
 .aa_block_time {
   position: absolute;
-  top: 750px;
+  top: 720px;
+  width: 485px;
+  font-size: 11pt;
 }
 
 .aa_layout {
@@ -44,9 +48,19 @@ body {
   width: 1200px;
 }
 
+.aa_layout2 {
+  margin-top: 5%;
+  margin-right: 10%;
+  float: right;
+  font-size: 14pt;
+  border: solid 2px;
+  border-radius: 10px;
+  font-size: bold;
+  padding: 5px;
+}
+
 .aa_btn{
-  font-size: 24pt;
   position: absolute;
-  top: 600px;
-  left: 1000px;
+  width: 485px;
+  top: 550px;
 }

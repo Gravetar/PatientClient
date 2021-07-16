@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 
 export class RegisterComponent {
   invalidRegister!: boolean;
+  isExistEmail: boolean = false;
 
   constructor(private route: Router, private http: HttpClient) {}
 
@@ -30,25 +31,36 @@ export class RegisterComponent {
       'dateofbirth': form.value.dateofbirth,
       'confirmPassword': form.value.confirmPassword,
     }
-    this.http.post("http://localhost:35702/api/Home/Register", credentials)
-    .subscribe(response => {
-      const token = (<any>response).token;
-      this.invalidRegister = false;
-    }, err => {
-      this.invalidRegister = true;
-      console.log(credentials)
-      console.log(err);
-    })
 
-    //Вход в аккаунт
-    this.http.post("http://localhost:35702/api/home/auth", credentials)
-    .subscribe(response => {
-      const token = (<any>response).token;
-      console.log(token);
-      localStorage.setItem("jwt", token);
-      this.route.navigate(["profile"]);
+    //Проверка почты
+    this.http.get("http://localhost:35702/api/home/CheckEmail/"+credentials.email).subscribe
+    (data => {
+
+      this.http.post("http://localhost:35702/api/Home/Register", credentials)
+      .subscribe(response => {
+        const token = (<any>response).token;
+        this.invalidRegister = false;
+
+          //Вход в аккаунт
+          this.http.post("http://localhost:35702/api/home/auth", credentials)
+          .subscribe(response => {
+            const token = (<any>response).token;
+            console.log(token);
+            localStorage.setItem("jwt", token);
+            this.route.navigate(["profile"]);
+          }, err => {
+            console.log(err)
+          })
+
+      }, err => {
+        this.invalidRegister = true;
+        console.log(credentials)
+        console.log(err);
+      })
+
     }, err => {
-      console.log(err)
+      this.isExistEmail = true;
+      console.log(err);
     })
 }
 

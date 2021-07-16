@@ -1,7 +1,8 @@
+<body>
 <form class="form-sugnin" #registerForm="ngForm" (ngSubmit)="Register(registerForm)">
     <div class="registaration">
       <h2 class="reg_head">Регистрация пациента</h2>
-      <div *ngIf="invalidRegister" class="l_warning">Введены неверные данные</div>
+      <div *ngIf="isExistEmail" class="l_warning">Пользователь с таким email уже зарегистрирован на сайте</div>
       <div>
       <label for="email" class="reg_l">Email</label><br>
       <input type="email" id="email" name="email" ngModel class="reg_in" placeholder="Example@example.com" required>
@@ -50,3 +51,4 @@
   </div>
     </div>
   </form>
+</body>

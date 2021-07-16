@@ -9,6 +9,7 @@ import { UploadService } from '../services/UploadSevice';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { DateAdapter } from '@angular/material/core';
+import { Doctor } from '../Models/Doctor';
 
 @Component({
   selector: 'app-addappointment',
@@ -24,8 +25,9 @@ export class AddappointmentComponent implements OnInit {
 
   position?: string;
 
-  doctor?: string;
+  doctor?: Doctor;
   date?:any;
+  dateforshow?:any;
   timeforadd?: string | null;
 
   freetime: string[] = [];
@@ -37,7 +39,7 @@ export class AddappointmentComponent implements OnInit {
 
   minDate: Date;
 
-  constructor(private http: HttpClient, public datepipe: DatePipe, private _adapter: DateAdapter<any>)
+  constructor(private http: HttpClient, public datepipe: DatePipe, private _adapter: DateAdapter<any>, private route: Router)
   {
     this.minDate = new Date();
   }
@@ -86,13 +88,13 @@ onChangeDoctor(newValue: any) {
   }
 
   onChangeDate(newValue: any) {
-    newValue = this.datepipe.transform(newValue, 'yyyy-MM-dd')
-    console.log(this.timeforadd);
-    this.date = newValue;
+    this.dateforshow = this.datepipe.transform(newValue, 'dd-MM-yyyy');
+
+    this.date = this.datepipe.transform(newValue, 'yyyy-MM-dd');
     this.isTime = false;
 
   //Получение
-  this.http.get<string[]>("http://localhost:35702/api/home/GetFreeTimeDoctor/" + this.doctor + "/" + this.date).subscribe
+  this.http.get<string[]>("http://localhost:35702/api/home/GetFreeTimeDoctor/" + this.doctor?.id + "/" + this.date).subscribe
   (response => {
     console.log(response);
     this.freetime = response;
@@ -120,7 +122,7 @@ onChangeDoctor(newValue: any) {
       const credentials = {
         'date': this.date,
         'time': this.timeforadd,
-        'doctorid': this.doctor
+        'doctorid': this.doctor?.id
       }
       console.log(credentials);
 
@@ -128,6 +130,7 @@ onChangeDoctor(newValue: any) {
       .subscribe(response => {
         console.log(credentials);
         console.log(response);
+        this.route.navigate(['appointments'])
       }, err => {
         console.log(credentials)
         console.log(err);

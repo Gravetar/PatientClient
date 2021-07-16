@@ -55,7 +55,7 @@
           </mat-form-field>
         </div>
     </div>
-    <input class="e_save_btn" type ="submit" value="Сохранить изменения" />
+    <button type ="submit" class="e_save_btn" mat-raised-button color="primary">Сохранить изменения</button>
     <label class = "p_ph_inf">Выберите изображение аккаунта</label>
     <img class="p_photo" src = {{urlimg}}>
     <input class = "p_uploadimg" accept=".png" #file type="file" (change)="upload(file.files)" />

@@ -123,7 +123,7 @@ export class EditprofileComponent implements OnInit {
     }
 
     setTimeout(function(){
-    }, 1000)
+    }, 5000)
     const Auth = {
       'email': this.EditedPatient.email,
       'password': this.EditedPatient.password

@@ -5,7 +5,7 @@ body {
 
 .autorization {
     width: 20%;
-    height: 500px;
+    height: 400px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
@@ -15,9 +15,10 @@ body {
 }
 
 .l_login {
-    font-weight: bold;
     font-size: 32pt;
     margin-left: 35%;
+    position: relative;
+    top: 10px;
 }
 
 .b_auth {

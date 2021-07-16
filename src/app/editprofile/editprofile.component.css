@@ -51,6 +51,7 @@ body {
 .e_save_btn {
     font-size: 24pt;
     position: absolute;
+    height: 50px;
     left: 60%;
     top: 90%;
 }
