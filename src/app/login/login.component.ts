@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
-
-import { from } from 'rxjs';
 
 @Component({
   selector: 'app-login',

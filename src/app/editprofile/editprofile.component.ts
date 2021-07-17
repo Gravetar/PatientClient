@@ -4,14 +4,10 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Patient } from '../Models/Patient';
-import {BrowserModule} from '@angular/platform-browser';
-import { DatePipe } from '@angular/common';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
 import * as _moment from 'moment';
-
-const moment = _moment;
 
 export const MY_FORMATS = {
   parse: {
@@ -42,10 +38,9 @@ export const MY_FORMATS = {
 export class EditprofileComponent implements OnInit {
 
   EditedPatient: Patient = new Patient();
-  CurrentPatient: Patient = new Patient();
-  CurrentUserId?: string;
   urlimg?: string;
   uploadimg?: FormData;
+  invalidEdit!: boolean;
 
   constructor(
     private router: Router,
@@ -65,23 +60,12 @@ export class EditprofileComponent implements OnInit {
       (response => {
         console.log(response);
         this.EditedPatient = response;
-      }, err => {
-        console.log(err);
-      })
-
-      //Получение текущего изображения пользователя
-      this.http.get("http://localhost:35702/api/home/GetUser").subscribe
-      (response => {
-        console.log(response);
-        this.CurrentPatient = response;
-        this.CurrentUserId = this.CurrentPatient.id;
-        this.urlimg="http://localhost:35702/AccountImages/"+this.CurrentUserId+".png?"+Date.now()
-        console.log(this.urlimg);
+        //Получение изображения пользователя
+        this.urlimg="http://localhost:35702/AccountImages/"+this.EditedPatient.id+".png?"+Date.now()
       }, err => {
         console.log(err);
       })
   }
-  invalidEdit!: boolean;
 
   Edit(form: NgForm) {
     const credentials = {
@@ -141,7 +125,7 @@ export class EditprofileComponent implements OnInit {
         })
   }
 
-  parseDate(dateString: string | undefined): Date {
+parseDate(dateString: string | undefined): Date {
     if (dateString) {
         return new Date(dateString);
     } else {
@@ -161,6 +145,4 @@ upload(files: any) {
 
     this.uploadimg = formData;
 }
-
-
 }

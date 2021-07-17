@@ -1,17 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Appointment } from '../Models/Appointment';
 
 @Component({
-  selector: 'app-aapointmentspage',
-  templateUrl: './aapointmentspage.component.html',
-  styleUrls: ['./aapointmentspage.component.css']
+  selector: 'app-appointmentspage',
+  templateUrl: './appointmentspage.component.html',
+  styleUrls: ['./appointmentspage.component.css']
 })
 
 
-export class AapointmentspageComponent implements OnInit {
+export class AppointmentspageComponent implements OnInit {
 
   appointments: Appointment[] = [];
   isExist: boolean = false;
@@ -33,6 +33,7 @@ export class AapointmentspageComponent implements OnInit {
   })
   }
 
+  //Удаление записи к врачу
   RemoveAppointment(id: undefined | string) {
     return this.http.delete("http://localhost:35702/api/Home/RemoveAppointments/" + id).subscribe
     (response => {

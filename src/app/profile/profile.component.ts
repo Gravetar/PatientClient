@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Patient } from '../Models/Patient';
 
 import * as _moment from 'moment';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter';
 
 const moment = _moment;
 
@@ -61,23 +60,11 @@ export class ProfileComponent implements OnInit {
       (response => {
         console.log(response);
         this.CurrentPatient = response;
-      }, err => {
-        console.log(err);
-      })
-
-      //Получение текущего изображения пользователя
-      this.http.get("http://localhost:35702/api/home/GetUser").subscribe
-      (response => {
-        console.log(response);
-        this.CurrentPatient = response;
+        //Получение изображения пользователя
         this.CurrentUserId = this.CurrentPatient.id;
         this.urlimg="http://localhost:35702/AccountImages/"+this.CurrentUserId+".png?"+Date.now()
-        console.log(this.urlimg);
       }, err => {
         console.log(err);
       })
-
   }
-
-
 }

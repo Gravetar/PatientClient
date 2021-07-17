@@ -1,8 +1,6 @@
-import { HttpClientModule, HttpContext } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { Component} from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Patient } from '../Models/Patient';
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,7 +33,7 @@ export class RegisterComponent {
     //Проверка почты
     this.http.get("http://localhost:35702/api/home/CheckEmail/"+credentials.email).subscribe
     (data => {
-
+      //Регистрация
       this.http.post("http://localhost:35702/api/Home/Register", credentials)
       .subscribe(response => {
         const token = (<any>response).token;
@@ -58,7 +56,7 @@ export class RegisterComponent {
         console.log(err);
       })
 
-    }, err => {
+    }, err => { //Почта уже существует
       this.isExistEmail = true;
       console.log(err);
     })
